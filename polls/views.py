@@ -41,7 +41,7 @@ def combo(request):
         form = CommentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('http://127.0.0.1:8000/polls/combo/')
+            return redirect('http://vaflyimya.pythonanywhere.com/polls/combo/')
         else:
             error = 'в глаза долбишься, чушок? заполни нормально'
 
