@@ -1,0 +1,20 @@
+<h3>Добавьте комментарий:</h3>
+
+<form method="post">
+    {% csrf_token %}
+    <p>
+        Ваше имя: 
+        <input type="text" value="{{ comment_autor }}" maxlength="25" size="40">
+    </p>
+    <p><textarea name="comment" value="{{ comment_text }}" rows="5" cols="50"></textarea></p>
+    <input type="submit" class="btn btn-success" value="Отправить">
+</form>
+
+<h2>Комментарии:</h2>
+
+
+{% for el in latest_comment_list %}
+    <h4>{{ el.comment_autor }}:</h4>
+    <p>{{ el.comment_text }}</p>
+    <br>
+{% endfor %}

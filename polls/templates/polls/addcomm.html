@@ -1,0 +1,11 @@
+<h3>Добавьте комментарий:</h3>
+
+<form method="post">
+    {% csrf_token %}
+    <p>Ваше имя: </p>
+    {{ form.comment_autor }}
+    <p>Ваши мысли по поводу этого всего: </p>
+    {{ form.comment_text }}
+    <span>{{ error }}</span>
+    <button class="btn btn-success" type="submit">отправить</button>
+</form>

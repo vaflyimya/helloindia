@@ -1,0 +1,29 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<body>
+
+<h3>Добавьте комментарий:</h3>
+
+<form method="post">
+    {% csrf_token %}
+    <p>Ваше имя: </p>
+    {{ form.comment_autor }}
+    <p>Ваши мысли по поводу этого всего: </p>
+    {{ form.comment_text }}
+    <span>{{ error }}</span>
+    <br>
+    <button class="btn btn-success" type="submit">отправить</button>
+</form>
+
+<h3>Комментарии:</h3>
+
+{% for el in latest_comment_list %}
+    <div class="com">
+        <div class="autor">{{ el.comment_autor }}:</div>
+        <div class="text">{{ el.comment_text }}</div>
+    </div>
+    <br>
+{% endfor %}
+
+</body>
